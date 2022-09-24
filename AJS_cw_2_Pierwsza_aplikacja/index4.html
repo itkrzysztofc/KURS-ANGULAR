@@ -1,0 +1,107 @@
+<!doctype html>
+<html ng-app="doZrobienia"><!-- wprowadzona nazwa apki i każe używać modułu -->
+	<head>
+		<title>cw 2.4 Lista</title>
+		<meta charset="utf-8" />
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            var model = {
+                user: "Krzysztof",
+                items: [
+                    {action: "Kupić nowy komputer", done: false},
+                    {action: "Kupić skuter śnieżny", done: false},
+                    {action: "Przeinstalować MacBooka", done: false},
+                    {action: "Zadzwonić do Appla", done: false}
+                ]
+            }
+            var doZrobienia = angular.module("doZrobienia", []);
+            //dodanie dodatkowego filtra
+            doZrobienia.filter("checkedItems", function(){
+                return function(items,pokazKompletny){
+                    var rezultatTab = [];
+                    angular.forEach(items,function(item){
+                        if (item.done== false || pokazKompletny == true){
+                            rezultatTab.push(item);
+                        }
+                    });
+                    return rezultatTab;
+                }
+            });
+            //koniec dodatkowego filtra
+            doZrobienia.controller("doZrobieniaCtrl", function($scope){
+                $scope.doZrobienia = model;
+                $scope.implementacjaLicznika = function(){
+                    var count=0;
+                    angular.forEach($scope.doZrobienia.items, function(item){
+                        if(item.done){
+                            count++;
+                        }
+                    });
+                    return count;
+                }
+                $scope.ostrzegaj = function(){
+                    return $scope.implementacjaLicznika()<3 ? "label-succes" : "label-warning";
+                }
+                $scope.dodaj = function(actionText){ //funkcja dostaje argument w postaci tekstu
+                    $scope.doZrobienia.items.push({action: actionText, done: false});
+                }
+            });
+        </script>
+</head>
+	<body ng-controller="doZrobieniaCtrl">
+        <div class="page-header">
+            <h1>
+                Moja lista: {{doZrobienia.user}}
+                <span class="label label-default">
+                    {{doZrobienia.items.length}} {{" rzeczy."}}
+                </span>
+            </h1>
+            <h2> Ile zrobiłem:
+                <span class="label label-default" ng-hide="implementacjaLicznika() == 0">
+                    {{implementacjaLicznika()}}
+                </span>
+            </h2>
+            <h2>ile mam do zrobienia:
+                <span>
+                    {{doZrobienia.items.length-implementacjaLicznika()}}
+                </span>
+            </h2>
+            <p>Wykonane: <span class="label label-default" ng-class="ostrzegaj()" 
+                     ng-hide="implementacjaLicznika() == 0">
+                {{implementacjaLicznika()}}
+            </span></p>
+        </div>
+        <div class="panel">
+            <div class="input-group">
+                <input class="form-control" ng-model="actionText" />
+                <span class="input-group-btn">
+                    <button class="btn btn-defautl btn-success"  ng-click="dodaj(actionText)">Dodaj</button>
+                </span>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Element listy</th>
+                            <th>Zrobione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr ng-repeat="item in doZrobienia.items | filter:{done:false} | orderBy:'action'"> -->
+                        <tr ng-repeat="item in doZrobienia.items | checkedItems:pokazKompletny | orderBy:'action'">
+                                <td>{{item.action}}</td>
+                            <td><input type="checkbox" ng-model="item.done" /></td>
+                            <!-- <td>{{item.done}}</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="checkbox-inline">
+                    <label><input type="checkbox" ng-model="pokazKompletny" />Pokaż zakończone</label>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+

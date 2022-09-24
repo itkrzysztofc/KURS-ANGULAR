@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>szablon</title>
+		<meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="angular.min.js"></script>
+</head>
+	<body>
+        <input ng-model='text' /><!-- Angular nie zadziała -->
+        <div ng-app><!-- Angular zadziała -->
+            <input ng-model='id_1' />
+            <div>{{ id_1 }}</div>
+            <input ng-model='id_2' />
+            <div>{{ id_2 }}</div>
+            <script>
+                document.write("{{id_1}}" + "{{id_2}}");
+            </script>
+        </div>
+	</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="aplikacja4">
+	<head>
+		<meta charset="utf-8">
+		<title>ng-repeat</title>
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div ng-controller="powtorkaCtrl" class="panel">
+			<ol class="row grid-row">
+				<li ng-repeat="numer in tablica" class="col-md-6">
+					{{numer.nazwa}} - {{numer.ilosc}}
+				</li>
+			</ol>
+		</div>
+		<script>
+			var app=angular.module('aplikacja4',[]);
+			app.controller('powtorkaCtrl', function($scope){
+				$scope.tablica = [
+					{nazwa:"Herbata zielona", ilosc:"jedna szklanka"},
+					{nazwa:"Herbata owocowa" , ilosc:"3 kubki" },
+					{nazwa: "Kawa czarna", ilosc:"pięć filiżanelk" },
+					{nazwa: "woda", ilosc:"jeden litr" }
+				];
+			});
+		</script>
+	</body>
+</html>

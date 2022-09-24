@@ -1,0 +1,31 @@
+body{
+	background-color: #2F3336;
+	color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+h1{
+	font-size: 36px;
+	font-weight: 400;
+	color: #C0D06F;
+	margin: 20px;
+}
+.obrazki{
+	/*margin-left: auto;
+	margin-right: auto;
+	width: 1100px;*/
+	text-align: center;
+	padding: 0;
+}
+/*
+.obrazek{
+	display: inline-block;
+	width: 32%;
+}
+.obrazek img{
+	width: 100%;
+}
+.obrazek figure{
+	margin: 10px;
+}
+*/

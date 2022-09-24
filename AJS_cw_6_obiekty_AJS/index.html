@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="aplikacja2">
+	<head>
+		<meta charset="utf-8">
+		<title>Obiekty</title>
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div ng-controller="czasCtrl">
+			Data: {{original() | date}} {{info}}
+		</div>
+		<script>
+			var apka = angular.module('aplikacja2' , []);
+			apka.run(function($rootScope){
+				$rootScope.aktualnaData = new Date();
+			});
+			apka.controller('czasCtrl',function($rootScope, $scope){
+				$scope.info = " Dzień Kobiet!!!";
+				$scope.fn=function(){
+					return info;
+				}
+				$scope.original = function(){
+					return $rootScope.aktualnaData;
+				};
+			});
+		</script>
+	</body>
+</html>

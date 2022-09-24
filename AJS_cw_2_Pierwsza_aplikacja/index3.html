@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="doZrobienia"><!-- wprowadzona nazwa apki i każe używać modułu -->
+	<head>
+		<title>cw 2.3 Lista</title>
+		<meta charset="utf-8" />
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            var model = {
+                user: "Krzysztof",
+                items: [
+                    {action: "Kupić nowy komputer", done: true},
+                    {action: "Kupić skuter śnieżny", done: true},
+                    {action: "Przeinstalować MacBooka", done: false},
+                    {action: "Zadzwonić do Appla", done: false}
+                ]
+            }
+            var doZrobienia = angular.module("doZrobienia", []);
+            doZrobienia.controller("doZrobieniaCtrl", function($scope){
+                $scope.doZrobienia = model;
+            });
+        </script>
+</head>
+	<body ng-controller="doZrobieniaCtrl">
+        <div class="page-header">
+            <h1>
+                Moja lista: {{doZrobienia.user}}
+                <span class="label label-default">{{doZrobienia.items.length}} {{" rzeczy."}}</span>
+            </h1>
+        </div>
+        <div class="panel">
+            <div class="input-group">
+                <input class="form-control" />
+                <span class="input-group-btn">
+                    <button class="btn btn-defautl">Dodaj</button>
+                </span>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Element listy</th>
+                            <th>Zrobione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in doZrobienia.items">
+                            <td>{{item.action}}</td>
+                            <td><input type="checkbox" ng-model="item.done" /></td>
+                            <td>{{item.done}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+
+

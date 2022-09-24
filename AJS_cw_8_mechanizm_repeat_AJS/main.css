@@ -1,0 +1,12 @@
+body{
+}
+#gridContainer{
+	padding: 20px;
+}
+.grid-row > div{
+	border: 1px solid lightgray;
+	padding: 10px;
+	background-color: rgb(176, 231, 171);
+	margin: 5px 0;
+}
+

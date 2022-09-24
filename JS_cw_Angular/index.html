@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>szablon</title>
+		<meta charset="utf-8" />
+         <link rel="stylesheet" href="style.css" />
+        
+</head>
+	<body>
+        <script>
+            function zegarek(){
+                let wynik=document.getElementById("tekst").value;
+               document.getElementById("wynik").innerHTML=wynik;
+                setTimeout("zegarek()",1);
+            }
+            window.onload=zegarek;
+        </script> 
+        <input type="text" id="tekst" />
+        
+        <div id="wynik"></div>
+	</body>
+</html>

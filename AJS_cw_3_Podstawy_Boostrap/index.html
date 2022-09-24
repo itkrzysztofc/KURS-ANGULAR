@@ -1,0 +1,61 @@
+<!doctype html>
+<html data-ng-app>
+	<head>
+		<title>cw 3</title>
+		<meta charset="utf-8" />
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+        <link rel="stylesheet" href="styles.css" />
+</head>
+	<body>
+        <div class="panel"><!-- klasa panel odpowiada za wygląd elementów interfejsu --> 
+            <h2 class="panel-heading">Style przycisków:</h2><!--Klasa stylu nagłówka-->
+            <button>Przycisk zwykły</button>
+            <button class="btn">Przycisk zwykły z klasą 'btn'</button>
+            <button class="btn btn-primary">Przycisk podstawowy</button>
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-danger">Danger</button>
+            <button class="btn btn-warning">Warning</button>
+            <button class="btn btn-info">Info</button>
+            <button class="btn btn-light">Light</button>
+            <button class="btn btn-dark">Dark</button>
+            <button class="btn btn-link">Link</button>
+        </div>
+        <!--Klasa 'well' grupuje obiekty -->
+        <div class="well">
+            <h2 class="panel-heading">Przyciski outline</h2>
+            <button type="button" class="btn btn-outline-primary">Primary</button>
+            <button type="button" class="btn btn-outline-secondary">Secondary</button>
+            <button type="button" class="btn btn-outline-success">Success</button>
+            <button type="button" class="btn btn-outline-danger">Danger</button>
+            <button type="button" class="btn btn-outline-warning">Warning</button>
+            <button type="button" class="btn btn-outline-info">Info</button>
+            <button type="button" class="btn btn-outline-light">Light</button>
+            <button type="button" class="btn btn-outline-dark">Dark</button>
+            <button type="button" class="btn btn-outline-primary btn-link">Dark</button>
+        </div>
+        <div class="well">
+            <h2 class="panel-heading">Wielkość przycisków</h2>
+            <button type="button" class="btn btn-primary btn-lg">Large button</button>
+            <button type="button" class="btn btn-primary">Large button</button>
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+        </div>
+        <div class="well">
+            <h2 class="panel-heading">Tagi</h2>
+            <a class="btn btn-primary" href="#" role="button">Link</a>
+            <button class="btn btn-primary" type="submit">Button</button>
+            <input class="btn btn-primary" type="button" value="Input">
+            <input class="btn btn-primary" type="submit" value="Submit">
+            <input class="btn btn-primary" type="reset" value="Reset">
+        </div>
+        <div class="well"><!--Działa tylko w trybach GRID0wych-->
+            <h2 class="panel-heading">Przyciski blokowe</h2>
+            <button class="btn btn-primary btn-lg btn-block">Block</button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Block</button>
+        </div>
+    </body>
+</html>
+

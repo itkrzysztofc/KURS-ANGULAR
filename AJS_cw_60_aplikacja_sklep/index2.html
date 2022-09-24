@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="sportsStore"><!--dyrektywa powodująca dostępność metody w całym dok.-->
+	<head>
+		<title>cw 6</title>
+		<meta charset="utf-8" />
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+        <link rel="stylesheet" href="main.css" />
+        <script>
+            angular.module("sportsStore", []);<!--Wywołanie metody angular.module-->
+        </script>
+        <script src="sportsStore.js"></script>
+    </head>
+	<body ng-controller="sportsStoreCtrl">
+        <div class="navbar navbar-inverse">
+            <a class="navbar-brand" href="#">SKLEP SPORTOWY</a>
+        </div>
+        <div class="panel panel-default row">
+            <div class="col-md-3">
+                Kategorie
+            </div>
+            <div class="col-md-8">
+                <div class="well" ng-repeat="item in data.products">
+                    <h3>
+                        <strong>{{item.nazwa}}</strong>
+                        <span class="pull-right label label-primary">
+                            {{item.cena | currency:"PLN ":2}}
+                        </span>
+                    </h3>
+                    <span class="lead">{{item.opis}}</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

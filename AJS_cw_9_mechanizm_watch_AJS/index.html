@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="aplikacja5">
+	<head>
+		<meta charset="utf-8">
+		<title>watch</title>
+        <script src="angular.min.js"></script>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div ng-controller="startCtrl">
+			<div class="well">Liczba: {{number}}</div>
+			<div>
+				<button class="btn btn-success" ng-click="add()">+</button>
+				<button class="btn btn-danger" ng-click="dec()">-</button>
+			</div>
+		</div>
+		<script>
+			var app=angular.module("aplikacja5", []);
+			app.controller('startCtrl',function($scope){
+				$scope.number=1; //wartość początkowa
+				$scope.$watch('number', function(){
+					console.log('Liczba: '+$scope.number);
+				});
+				$scope.add = function(){
+					$scope.number++;
+				};
+				$scope.dec = function(){
+					$scope.number--;
+				};
+			});
+			app.controller('timerek',function($scope){
+				$scope.go = function(){
+					setTimeout(
+						function(){
+							$scope.msg = "Znów się spóźniłam. Spóźnialsa informacja.";
+							$scope.$apply();
+						},3000);
+				};
+				$scope.go();//wywołanie dodatkowej info
+			});
+		</script>
+		<div ng-controller="timerek">
+			<div class="well">Wiadomość: {{msg}}</div>
+		</div>
+	</body>
+</html>

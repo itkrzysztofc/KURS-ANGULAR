@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>formularz w siatce</title>
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.css" />
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div class="panel">
+			<p class="panel-header">Elementy formularza</p>
+			<div class="form-group">
+				<label>Nazwisko:</label>
+				<input name="name" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label>Imię:</label>
+				<input surname="name" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label>E-mail:</label>
+				<input name="email" class="form-control" />
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="spam" value="yes" checked />
+					Akceptuję wiadomości uznawane za spam 
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="spam" value="no" />
+					Nie chcę wiadomości uznawanych za spam 
+				</label>
+			</div>
+			<div class="checked">
+				<label>
+					<input type="checkbox" />
+					Akceptuję regulamin 
+				</label>
+			</div>
+			<input type="button" class="btn btn-success" value="Wyślij" />
+		</div>
+		<!--SIATKA -->
+		<div class="panel">
+			<h3 class="panel-header">Układ siatkowy</h3>
+			<div id="gridContainer">
+				<div class="row grid-row">
+					<div class="col-md-1">1</div>
+					<div class="col-md-1">1</div>
+					<div class="col-md-2">2</div>
+					<div class="col-md-2">2</div>
+					<div class="col-md-6">6</div>
+				</div>
+				<div class="row grid-row">
+					<div class="col-lg-3">3</div>
+					<div class="col-lg-4">4</div>
+					<div class="col-lg-5">5</div>
+				</div>
+				<div class="row grid-row">
+					<div class="col-sm-6">
+						<div class="panel">
+							<p class="panel-header">Elementy formularza</p>
+							<div class="form-group">
+								<label>Nazwisko:</label>
+								<input name="name" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label>Imię:</label>
+								<input surname="name" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label>E-mail:</label>
+								<input name="email" class="form-control" />
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="spam" value="yes" checked />
+									Akceptuję wiadomości uznawane za spam 
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="spam" value="no" />
+									Nie chcę wiadomości uznawanych za spam 
+								</label>
+							</div>
+							<div class="checked">
+								<label>
+									<input type="checkbox" />
+									Akceptuję regulamin 
+								</label>
+							</div>
+							<input type="button" class="btn btn-success" value="Wyślij" />
+						</div>
+					</div>
+					<div class="col-sm-6">6</div>
+				</div>
+				<div class="row grid-row">
+					<div class="col-sm-11">11</div>
+					<div class="col-sm-1">1</div>
+				</div>
+				<div class="row grid-row">
+					<div class="col-sm-12">12</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
